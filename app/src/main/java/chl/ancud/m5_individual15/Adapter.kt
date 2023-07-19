@@ -22,11 +22,16 @@ class Adapter: RecyclerView.Adapter <Adapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val item = pokemones[position]
+        holder.bind(item)
     }
 
-    class ViewHolder(binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
 
+        fun bind(pokemon: Pokemon) {
+            binding.itemTxvNombre.text = pokemon.nombre
+            binding.itemTxvTipo.text = pokemon.tipo
+        }
     }
 
     fun initData() {

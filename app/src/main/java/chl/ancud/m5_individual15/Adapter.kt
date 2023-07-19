@@ -9,10 +9,9 @@ import com.example.kotlinexamples.Pokedex
 
 class Adapter: RecyclerView.Adapter <Adapter.ViewHolder>() {
 
-    val pokemones = mutableListOf<Pokemon>()
+    var pokemones = mutableListOf<Pokemon>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
         val binding: ItemLayoutBinding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
@@ -34,7 +33,8 @@ class Adapter: RecyclerView.Adapter <Adapter.ViewHolder>() {
         }
     }
 
-    fun initData() {
-
+    fun setData(pokedex: List<Pokemon>) {
+        this.pokemones = pokedex.toMutableList()
     }
+
 }
